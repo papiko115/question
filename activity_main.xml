@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- グラフのビュー -->
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/productNameInput"
+        app:layout_constraintHeight_percent="0.25"/> <!-- 高さを25%に設定 -->
+
+    <!-- 商品名入力用のEditText -->
+    <EditText
+        android:id="@+id/productNameInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="商品名"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/barchart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 消費期限入力用のEditText -->
+    <EditText
+        android:id="@+id/productExpirationInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="消費期限（YYYY-MM-DD）"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/productNameInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 商品数量入力用のEditText -->
+    <EditText
+        android:id="@+id/productQuantityInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="数量を入力"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/productExpirationInput"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- リストビュー -->
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/productQuantityInput"
+        app:layout_constraintBottom_toTopOf="@+id/addProductButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" /> <!-- 上部にマージンを追加 -->
+
+    <!-- 商品追加ボタン -->
+    <Button
+        android:id="@+id/addProductButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="商品を追加"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
